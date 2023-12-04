@@ -1,18 +1,23 @@
 import React from "react";
+import { useState } from "react";
 import App from "../Lexical/App";
 import "./Main.scss";
 
 const Main = () => {
+  const [memo, setMemo] = useState("");
   function addNewNote() {
     let userMemo = JSON.parse(localStorage.getItem("inputText"));
-    console.log(userMemo);
+    setMemo(userMemo);
   }
 
   return (
     <div className="upnoteWrap">
       <div className="upnoteIneer">
         <div className="notebookWrapp">노트북</div>
-        <div className="memoWrap">메모</div>
+        <div className="memoWrap">
+          메모
+          {memo}
+        </div>
         <div className="editorWrap">
           에디터
           <button className="buttonAdd" type="submit" onClick={addNewNote}>
