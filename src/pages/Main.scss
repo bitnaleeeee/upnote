@@ -1,0 +1,12 @@
+.upnoteWrap {
+  background-color: #ffff;
+  min-width: 1400px;
+  max-width: 1920px;
+  height: 100%;
+
+  .upnoteIneer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
