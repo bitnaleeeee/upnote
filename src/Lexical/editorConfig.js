@@ -1,9 +1,10 @@
 import { EmojiNode } from "./EmojiNode";
 import ExampleTheme from "./ExampleTheme";
 
-let test = localStorage.getItem("inputText");
+const fixedText = localStorage.getItem("inputText");
+
 const editorConfig = {
-  editorState: test,
+  editorState: fixedText,
   theme: ExampleTheme,
   onError(error) {
     throw error;
