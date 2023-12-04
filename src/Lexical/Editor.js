@@ -4,11 +4,8 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
-import TreeViewPlugin from "../plugins/TreeViewPlugin";
-
 import EmoticonPlugin from "../plugins/EmoticonPlugin";
 import MyCustomAutoFocusPlugin from "../plugins/MyCustomAutoFocusPlugin";
-
 import editorConfig from "./editorConfig";
 import onChange from "./onChange";
 
@@ -21,9 +18,9 @@ export default function Editor() {
           placeholder={<Placeholder />}
           ErrorBoundary={LexicalErrorBoundary}
         />
+
         <OnChangePlugin onChange={onChange} />
         <HistoryPlugin />
-        <TreeViewPlugin />
         <EmoticonPlugin />
         <MyCustomAutoFocusPlugin />
       </div>

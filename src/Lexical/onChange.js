@@ -8,6 +8,8 @@ export default function onChange(editorState) {
     const root = $getRoot();
     const selection = $getSelection();
 
-    console.log(root, selection);
+    // console.log(root, selection);
+    let inputText = root.__cachedText;
+    localStorage.setItem("inputText", JSON.stringify(inputText));
   });
 }

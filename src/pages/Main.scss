@@ -9,4 +9,19 @@
     flex-direction: row;
     justify-content: space-around;
   }
+  .editorWrap {
+    width: 50%;
+
+    .buttonAdd {
+      margin-left: 700px;
+      background-color: #0078c5;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 17px;
+      font-weight: 700;
+      width: 100px;
+    }
+  }
 }
