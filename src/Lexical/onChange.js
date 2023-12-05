@@ -9,7 +9,6 @@ export default function onChange(editorState) {
     const selection = $getSelection();
 
     // console.log(root, selection);
-
     localStorage.setItem("inputObject", JSON.stringify(editorState));
     localStorage.setItem("inputText", JSON.stringify(root.__cachedText));
   });

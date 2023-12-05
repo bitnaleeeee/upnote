@@ -19,11 +19,13 @@ const Main = () => {
         <div className="notebookWrapp">노트북</div>
         <div className="memoWrap">
           메모
-          <p> {inputText}</p>
-          {console.log(list)}
-          {list.map((item, idx) => (
-            <p key={idx}>{item}</p>
-          ))}
+          <p>{inputText}</p>
+          <ul>
+            {console.log(list[0])}
+            {list.map((item, idx) =>
+              item.length ? <li key={idx}>{item} </li> : null
+            )}
+          </ul>
         </div>
         <div className="editorWrap">
           에디터
