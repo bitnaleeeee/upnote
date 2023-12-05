@@ -10,6 +10,7 @@ export default function onChange(editorState) {
 
     console.log(root, selection);
 
-    localStorage.setItem("inputText", JSON.stringify(editorState));
+    localStorage.setItem("inputObject", JSON.stringify(editorState));
+    localStorage.setItem("inputText", JSON.stringify(root.__cachedText));
   });
 }

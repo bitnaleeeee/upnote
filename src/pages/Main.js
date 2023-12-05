@@ -5,9 +5,11 @@ import "./Main.scss";
 
 const Main = () => {
   const [memo, setMemo] = useState("");
+
   function addNewNote() {
-    let userMemo = JSON.parse(localStorage.getItem("inputText"));
-    setMemo(userMemo);
+    let hoxy = JSON.parse(localStorage.getItem("inputText"));
+
+    setMemo(hoxy);
   }
 
   return (

@@ -1,7 +1,7 @@
 import { EmojiNode } from "./EmojiNode";
 import ExampleTheme from "./ExampleTheme";
 
-const fixedText = localStorage.getItem("inputText");
+const fixedText = localStorage.getItem("inputObject");
 
 const editorConfig = {
   editorState: fixedText,
@@ -13,5 +13,3 @@ const editorConfig = {
 };
 
 export default editorConfig;
-
-//    let userMemo = JSON.parse(localStorage.getItem("inputText"));
