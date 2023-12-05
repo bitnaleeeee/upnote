@@ -4,9 +4,16 @@ import App from "../Lexical/App";
 import "./Main.scss";
 
 const Main = () => {
+  let inputText = JSON.parse(localStorage.getItem("inputText"));
+
   const [memo, setMemo] = useState([]);
   const [list, setList] = useState([]);
-  let inputText = JSON.parse(localStorage.getItem("inputText"));
+  const [count, setCount] = useState(0);
+
+  function addNoteBook() {
+    setCount(count + 1);
+    console.log("count2 work?", count);
+  }
 
   function addNewNote() {
     setMemo(inputText);
@@ -16,12 +23,23 @@ const Main = () => {
   return (
     <div className="upnoteWrap">
       <div className="upnoteIneer">
-        <div className="notebookWrapp">노트북</div>
+        <div className="notebookWrap">
+          <div className="notebookNav">
+            <div className="notebookTab">여러 노트북</div>
+            <button className="notebookAdd" type="submit" onClick={addNoteBook}>
+              +
+            </button>
+          </div>
+
+          <ul>
+            <li>ㅎㅇ</li>
+            <li>{count}</li>
+          </ul>
+        </div>
         <div className="memoWrap">
           메모
           <p>{inputText}</p>
           <ul>
-            {console.log(list[0])}
             {list.map((item, idx) =>
               item.length ? <li key={idx}>{item} </li> : null
             )}
@@ -29,7 +47,7 @@ const Main = () => {
         </div>
         <div className="editorWrap">
           에디터
-          <button className="buttonAdd" type="submit" onClick={addNewNote}>
+          <button className="memoAdd" type="submit" onClick={addNewNote}>
             새 노트
           </button>
           <App />
