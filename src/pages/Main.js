@@ -4,11 +4,13 @@ import App from "../Lexical/App";
 import "./Main.scss";
 
 const Main = () => {
-  const [memo, setMemo] = useState();
+  const [memo, setMemo] = useState([]);
+  const [list, setList] = useState([]);
   let inputText = JSON.parse(localStorage.getItem("inputText"));
 
   function addNewNote() {
     setMemo(inputText);
+    setList([...list, memo]);
   }
 
   return (
@@ -17,10 +19,11 @@ const Main = () => {
         <div className="notebookWrapp">노트북</div>
         <div className="memoWrap">
           메모
-          {inputText}
-          {/* {memo.map((item, index) => {
-            return <span key={index}>{item}</span>;
-          })} */}
+          <p> {inputText}</p>
+          {console.log(list)}
+          {list.map((item, idx) => (
+            <p key={idx}>{item}</p>
+          ))}
         </div>
         <div className="editorWrap">
           에디터
