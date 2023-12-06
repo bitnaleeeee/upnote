@@ -8,11 +8,11 @@ const Main = () => {
 
   const [memo, setMemo] = useState([]);
   const [list, setList] = useState([]);
-  const [count, setCount] = useState(0);
+  const [items, setItems] = useState([]);
 
   function addNoteBook() {
-    setCount(count + 1);
-    console.log("count2 work?", count);
+    const newItems = [...items, `Item ${items.length + 1}`];
+    setItems(newItems);
   }
 
   function addNewNote() {
@@ -30,10 +30,10 @@ const Main = () => {
               +
             </button>
           </div>
-
           <ul>
-            <li>ㅎㅇ</li>
-            <li>{count}</li>
+            {items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </div>
         <div className="memoWrap">
