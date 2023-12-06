@@ -11,7 +11,7 @@ const Main = () => {
   const [items, setItems] = useState([]);
 
   function addNoteBook() {
-    const newItems = [...items, `Item ${items.length + 1}`];
+    const newItems = [...items, `노트북 ${items.length + 1}`];
     setItems(newItems);
   }
 
