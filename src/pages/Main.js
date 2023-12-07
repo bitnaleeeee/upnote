@@ -1,28 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import App from "../Lexical/App";
 import "./Main.scss";
 
 const Main = () => {
-  let inputText = JSON.parse(localStorage.getItem("inputText"));
-
-  const [memo, setMemo] = useState([]);
-  const [list, setList] = useState([]);
   const [items, setItems] = useState([]);
 
+  const [memo, setMemo] = useState([]);
+
   function addNoteBook() {
-    const newItems = [...items, `노트북 ${items.length + 1}`];
+    let newItems = [...items, `노트북 ${items.length + 1}`];
     setItems(newItems);
   }
-
   function removeNoteBook() {
     const updatedList = items.slice(0, -1);
     setItems(updatedList);
   }
 
-  function addNewNote() {
-    setMemo(inputText);
-    setList([...list, memo]);
+  function addNewMemo() {
+    let inputText = JSON.parse(localStorage.getItem("inputText"));
+    setMemo([...memo, inputText]);
   }
 
   return (
@@ -32,14 +29,14 @@ const Main = () => {
           <div className="notebookNav">
             <div className="notebookTab">여러 노트북</div>
             <button className="notebookAdd" type="submit" onClick={addNoteBook}>
-              추가
+              Add+
             </button>
             <button
               className="notebookAdd"
               type="submit"
               onClick={removeNoteBook}
             >
-              삭제
+              Delete
             </button>
           </div>
           <ul>
@@ -50,16 +47,16 @@ const Main = () => {
         </div>
         <div className="memoWrap">
           메모
-          <p>{inputText}</p>
+          <p>새노트</p>
           <ul>
-            {list.map((item, idx) =>
+            {memo.map((item, idx) =>
               item.length ? <li key={idx}>{item} </li> : null
             )}
           </ul>
         </div>
         <div className="editorWrap">
           에디터
-          <button className="memoAdd" type="submit" onClick={addNewNote}>
+          <button className="memoAdd" type="submit" onClick={addNewMemo}>
             새 노트
           </button>
           <App />
