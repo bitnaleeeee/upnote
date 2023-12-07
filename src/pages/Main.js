@@ -15,6 +15,11 @@ const Main = () => {
     setItems(newItems);
   }
 
+  function removeNoteBook() {
+    const updatedList = items.slice(0, -1);
+    setItems(updatedList);
+  }
+
   function addNewNote() {
     setMemo(inputText);
     setList([...list, memo]);
@@ -27,7 +32,14 @@ const Main = () => {
           <div className="notebookNav">
             <div className="notebookTab">여러 노트북</div>
             <button className="notebookAdd" type="submit" onClick={addNoteBook}>
-              +
+              추가
+            </button>
+            <button
+              className="notebookAdd"
+              type="submit"
+              onClick={removeNoteBook}
+            >
+              삭제
             </button>
           </div>
           <ul>
