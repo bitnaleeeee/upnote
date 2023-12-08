@@ -3,6 +3,7 @@
   min-width: 1400px;
   max-width: 1920px;
   height: 100%;
+  padding-left: 30px;
 
   .upnoteIneer {
     padding-top: 20px;
@@ -11,24 +12,37 @@
     justify-content: space-between;
     align-items: baseline;
 
-    .notebookNav {
+    .notebookWrap {
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
 
-      .notebookTab {
+      .notebookNav {
         font-size: 25px;
       }
-      .notebookAdd {
-        color: #0078c5;
-        border: none;
-        font-size: 17px;
-        width: 80px;
-        height: 50px;
+      .basicLabel {
         cursor: pointer;
-        background-color: #ffffff;
+        background-color: #f4f4f4;
+      }
+      .basicLabeloff {
+        cursor: pointer;
+      }
+
+      .notebookLabel {
+        display: flex;
+        flex-direction: row;
+
+        .notebookAdd {
+          color: #0078c5;
+          border: none;
+          font-size: 17px;
+          width: 80px;
+          height: 50px;
+          cursor: pointer;
+          background-color: #ffffff;
+        }
       }
     }
+
     .editorWrap {
       width: 50%;
 
@@ -39,7 +53,7 @@
         padding: 10px;
         border-radius: 10px;
         border: none;
-        font-size: 17px;
+        font-size: 20px;
         font-weight: 700;
         width: 100px;
       }

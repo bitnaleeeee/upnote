@@ -1,53 +1,37 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import App from "../Lexical/App";
+import Notebooks from "../Compotnets/Notebooks";
 import "./Main.scss";
 
 const Main = () => {
-  const [items, setItems] = useState([]);
-
+  const [isActive, setIsActive] = useState(false);
   const [memo, setMemo] = useState([]);
-
-  function addNoteBook() {
-    let newItems = [...items, `노트북 ${items.length + 1}`];
-    setItems(newItems);
-  }
-  function removeNoteBook() {
-    const updatedList = items.slice(0, -1);
-    setItems(updatedList);
-  }
 
   function addNewMemo() {
     let inputText = JSON.parse(localStorage.getItem("inputText"));
     setMemo([...memo, inputText]);
   }
 
+  const handleClick = () => {
+    setIsActive(!isActive); // 클릭할 때마다 상태를 반전
+  };
+
   return (
     <div className="upnoteWrap">
       <div className="upnoteIneer">
         <div className="notebookWrap">
-          <div className="notebookNav">
-            <div className="notebookTab">여러 노트북</div>
-            <button className="notebookAdd" type="submit" onClick={addNoteBook}>
-              Add+
-            </button>
-            <button
-              className="notebookAdd"
-              type="submit"
-              onClick={removeNoteBook}
-            >
-              Delete
-            </button>
-          </div>
-          <ul>
-            {items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+          <div className="notebookNav">모든노트</div>
+          <p
+            className={isActive ? "basicLabeloff" : "basicLabel"}
+            onClick={handleClick}
+          >
+            미분류
+          </p>
+
+          <Notebooks />
         </div>
         <div className="memoWrap">
-          메모
-          <p>새노트</p>
+          변수들어갈거임
           <ul>
             {memo.map((item, idx) =>
               item.length ? <li key={idx}>{item} </li> : null
