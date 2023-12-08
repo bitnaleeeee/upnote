@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import ItemList from "./ItemList";
 
 const Notebooks = () => {
   const [items, setItems] = useState([]);
@@ -25,13 +26,7 @@ const Notebooks = () => {
           Delete-
         </button>
       </div>
-      <ul>
-        {items.map((item, index) => (
-          <li className="basicLabel" key={index}>
-            {item}
-          </li>
-        ))}
-      </ul>
+      <ItemList items={items} />
     </>
   );
 };
