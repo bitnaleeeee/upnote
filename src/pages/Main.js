@@ -10,12 +10,12 @@ const Main = () => {
       <div className="upnoteIneer">
         <div className="notebookWrap">
           <div className="notebookNav">모든노트</div>
-          <p className="basicLabel">미분류</p>
+          <p className="basicLabel">- 미분류</p>
           <Notebooks />
         </div>
         <Memos />
         <div className="editorWrap">
-          에디터
+          <div className="title">에디터</div>
           <App />
         </div>
       </div>

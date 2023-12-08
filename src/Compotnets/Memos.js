@@ -20,15 +20,13 @@ const Memos = () => {
   }
 
   return (
-    <div>
-      <div className="memoWrap">
-        변수들어갈거임
-        <ul>
-          {memo.map((item, idx) =>
-            item.length ? <li key={idx}>{item} </li> : null
-          )}
-        </ul>
-      </div>
+    <div className="memoWrap">
+      <div className="title">메모</div>
+      <ul>
+        {memo.map((item, idx) =>
+          item.length ? <li key={idx}>{item} </li> : null
+        )}
+      </ul>
       <button className="memoAdd" type="submit" onClick={addNewMemo}>
         새 노트
       </button>

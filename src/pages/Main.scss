@@ -1,46 +1,118 @@
 .upnoteWrap {
+  position: relative;
   background-color: #ffff;
   min-width: 1400px;
   max-width: 1920px;
   height: 100%;
-  padding-left: 30px;
 
   .upnoteIneer {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
+    position: relative;
+    padding-left: 500px;
+    box-sizing: border-box;
+    height: 100%;
 
     .notebookWrap {
-      display: flex;
-      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      border-right: 1px solid #e5e5e5;
+      padding: 30px 20px;
 
       .notebookNav {
         font-size: 25px;
+        font-weight: bold;
       }
+
       .basicLabel {
+        margin: 20px 0 0 10px;
         cursor: pointer;
+
+        &>li {
+          margin-top: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #f0f0f0;
+        }
       }
 
       .notebookLabel {
-        display: flex;
-        flex-direction: row;
-
+        position: relative;
+        margin-top: 50px;
+        border-top: 1px solid #f0f0f0;
+        padding-bottom: 60px;
+        &>p {
+          margin-top: 10px;
+          font-size: 20px;
+          font-weight: bold;
+        }
         .notebookAdd {
+          position: absolute;
+          bottom: 0;
+          left: 0;
           color: #0078c5;
           border: none;
           font-size: 17px;
-          width: 80px;
-          height: 50px;
+          width: 100px;
+          height: 40px;
+          border-radius: 5px;
           cursor: pointer;
-          background-color: #ffffff;
+          background-color: #33cc99;
+          color: #fff;
+          &:last-child{
+            left: auto;
+            right: 0;
+            background-color: #ff6666;
+          }
         }
       }
     }
+  }
 
-    .editorWrap {
-      width: 50%;
+  .editorWrap {
+    padding: 30px 20px;
+    width: 100%;
+    .title {
+      font-size: 20px;
+      font-weight: bold;
     }
+  }
+
+  .memoWrap {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    padding: 30px 20px;
+    width: 250px;
+    border-right: 1px solid #e5e5e5;
+    height: 100%;
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    & > ul {
+      margin-top: 20px;
+      & > li {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .memoAdd {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    background-color: #6699ff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
   }
 }
