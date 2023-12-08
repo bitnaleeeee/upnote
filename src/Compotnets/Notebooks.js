@@ -1,18 +1,25 @@
-import React from "react";
-import { useState } from "react";
-import ItemList from "./ItemList";
+import React, { useState, useEffect } from "react";
 
 const Notebooks = () => {
   const [items, setItems] = useState([]);
 
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem("notebooks"));
+    if (storedItems) {
+      setItems(storedItems);
+    }
+  }, []);
+
   function addNoteBook() {
-    let newItems = [...items, `노트북 ${items.length + 1}`];
+    const newItems = [...items, `노트북 ${items.length + 1}`];
     setItems(newItems);
+    localStorage.setItem("notebooks", JSON.stringify(newItems));
   }
 
   function removeNoteBook() {
     const updatedList = items.slice(0, -1);
     setItems(updatedList);
+    localStorage.setItem("notebooks", JSON.stringify(updatedList));
   }
 
   return (
@@ -26,7 +33,11 @@ const Notebooks = () => {
           Delete-
         </button>
       </div>
-      <ItemList items={items} />
+      <ul className="basicLabel">
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </>
   );
 };
